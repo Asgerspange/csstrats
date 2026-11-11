@@ -1,0 +1,51 @@
+.tactics-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-top: .75rem;
+}
+
+
+
+// Grid responsive breakpoints
+@media (max-width: 576px) {
+  .tactics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .tactics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .tactics-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+  .tactics-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1601px) {
+  .tactics-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 1920px) {
+  .tactics-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 2560px) {
+  .tactics-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}

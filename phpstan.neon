@@ -1,0 +1,40 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    # The level of strictness (0 is loosest, 9 is strictest)
+    # Level 4 is a great balance for catching actual bugs without being overly pedantic about types.
+    level: 4
+
+    # The directories PHPStan should analyze
+    paths:
+        - app/
+        - routes/
+        - database/
+
+    # Ignore specific errors that you know are safe or false positives
+    ignoreErrors:
+        # Ignore undefined property access on Eloquent Models
+        - '#Access to an undefined property Illuminate\\Database\\Eloquent\\Model::\$[a-zA-Z0-9_]+#'
+        
+        # Ignore undefined property access on Laravel Cashier Subscriptions
+        - '#Access to an undefined property Laravel\\Cashier\\Subscription::\$[a-zA-Z0-9_]+#'
+        
+        # Ignore undefined property access on Team models or Collections (common in UserController)
+        - '#Access to an undefined property App\\Models\\Team\|Illuminate\\Database\\Eloquent\\Collection.*::\$[a-zA-Z0-9_]+#'
+        
+        # Catch-all for other App\Models if needed
+        - '#Access to an undefined property App\\Models\\[a-zA-Z0-9_]+::\$[a-zA-Z0-9_]+#'
+
+        # Stripe
+        - '#Access to an undefined property Stripe\\[a-zA-Z0-9_]+::\$[a-zA-Z0-9_]+#'
+
+        #Eloquent stuff
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Relations\\[a-zA-Z0-9_]+::[a-zA-Z0-9_]+\(\)+#'
+
+    # Exclude files or directories from analysis
+    excludePaths:
+        # - app/Http/Controllers/LegacyController.php
+
+    # Treat PHPDoc types as certain (set to false if your docblocks are outdated/unreliable)
+    treatPhpDocTypesAsCertain: true

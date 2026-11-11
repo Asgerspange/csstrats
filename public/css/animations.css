@@ -1,0 +1,37 @@
+
+@view-transition {
+    navigation: auto;
+}
+
+html::view-transition-group(.emblem) {
+    animation-duration: .6s !important;
+}
+
+/* Base styles for all map emblems */
+.demo-map-emblem {
+    contain: paint;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+}
+  ::view-transition-old(map-emblem-*),
+  ::view-transition-new(map-emblem-*) {
+    height: 100%;
+    width: 100%;
+    color:pink;
+    object-fit: contain;
+    object-position: center;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  ::view-transition-old(map-emblem-*) {
+    mix-blend-mode: normal;
+    opacity: 1;
+  }
+  
+  ::view-transition-new(map-emblem-*) {
+    mix-blend-mode: normal;
+    opacity: 1;
+  }

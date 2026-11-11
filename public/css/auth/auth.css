@@ -1,0 +1,208 @@
+@import '../variables.css';
+
+:root {
+    --color-cyan: #0096d6;
+    --color-cyan-darker: #0073a3;
+    --color-dark-blue: #002b36;
+    --color-light-blue: #004d73;
+}
+
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v136/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOej.woff2) format('woff2');
+}
+
+body {
+    margin: 0;
+    font-family: "system-io", sans-serif;
+    background-size: cover;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    color: #ddd;
+}
+
+.dots-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  @keyframes float {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes randomMovement {
+    0% {
+      transform: translateX(calc(100vw * random())) translateY(calc(100vh * random()));
+    }
+    100% {
+      transform: translateX(calc(100vw * random())) translateY(calc(100vh * random()));
+    }
+  }
+
+.auth-form {
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #58bc82;
+    text-align: center;
+}
+
+.input-span {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-span input {
+    color: white;
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="text"] {
+    border-radius: 0.5rem;
+    padding: 1rem 0.75rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    background-color: rgba(156, 156, 156, 0.35);
+    outline: 2px solid #707070;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus,
+.auth-form input[type="text"]:focus {
+    outline: 2px solid var(--color-cyan);
+    box-shadow: 0 0 5px var(--color-cyan);
+}
+
+label {
+    display: inline !important;
+    align-self: flex-start;
+    color: #58bc82;
+    font-weight: 600;
+}
+
+.auth-form .submit {
+    padding: 1rem 0.75rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 3rem;
+    background-color: #707070;
+    color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.auth-form .submit:hover {
+    background-color: var(--color-cyan);
+    transform: translateY(-2px);
+    color: #232323;
+}
+
+.material-symbols {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+.auth-form .span {
+    text-decoration: none;
+    color: #707070;
+    text-align: center;
+    display: block;
+}
+
+.auth-form .span a {
+    color: #58bc82;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.auth-form .span a:hover {
+    color: var(--color-cyan);
+}
+
+input::placeholder {
+    color: #aaa;
+    opacity: 1;
+}
+
+input:-ms-input-placeholder {
+    color: #aaa;
+}
+
+input::-ms-input-placeholder {
+    color: #aaa;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #002b36 inset;
+    -webkit-text-fill-color: white;
+    background-clip: text;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}

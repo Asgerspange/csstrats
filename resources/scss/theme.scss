@@ -1,0 +1,81 @@
+html.dark-mode {
+    .card {
+        background: #1e1e219c;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .tab {
+            background: #232326;
+
+            &:hover {
+                background: #2e2e33;
+            }
+        }
+
+        .tab-content {
+            background-color: #232326c4;
+        }
+    }
+
+
+    .p-accordionpanel:not(.p-disabled).p-accordionpanel-active > .p-accordionheader:hover {
+        color: white !important;
+    }
+
+    .due-date-header {
+        background-color: #141414
+    }
+
+    .team-info-container, .not-in-team-container {
+        background-color: #18181b;
+    }
+
+    .demo-sidebar {
+        // background-color: #27272a;
+        border-right: 1px solid var(--p-content-border-color);
+    }
+
+    .demo-tabs {
+        border-bottom: 1px solid var(--p-content-border-color);
+    }
+
+    .p-card {
+        background-color: #222227;
+    }
+
+    .tool {
+        color: white;
+    }
+
+    .toolbar {
+        background-color: #18181b !important;
+        border: 1px solid var(--p-toolbar-border-color);
+        border-radius: 6px;
+    }
+
+    .p-button-text {
+        color: white !important;
+    }
+    .sidebar-header {
+        color: var(--main-color);
+    }
+
+    .colorSelected {
+        border: 3px solid #ffffff;
+    }
+    
+    .p-dropdown-label {
+        color: white;
+    }
+
+    .p-dropdown-item-group {
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    .p-overlaypanel-content {
+        background: #1e1e1ed9;
+    }
+}

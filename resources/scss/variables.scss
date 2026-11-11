@@ -1,0 +1,39 @@
+@import './colors.scss';
+@import './flags.scss';
+
+$font-size-small: 14px;
+$font-size-regular: 16px;
+$font-size-large: 20px;
+$font-size-xlarge: 24px;
+$font-size-xxlarge: 32px;
+
+$indention-xs: 4px;
+$indention-sm: 8px;
+$indention-md: 16px;
+$indention-lg: 24px;
+$indention-xl: 32px;
+$indention-xxl: 48px;
+
+$border-radius: 4px;
+$border-radius-round: 50%;
+
+$transition: all 0.2s ease 0s;
+
+$box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+             0 1px 1px 0 rgba(0, 0, 0, 0.14),
+             0 1px 3px 0 rgba(0, 0, 0, 0.12);
+
+$elevation: 8.0px 16.0px 16.0px hsl(0deg 0% 0% / 0.25);
+$elevation-bigger: 8.0px 16.0px 16.0px hsla(0, 0%, 0%, 0.8);
+
+$color-cyan: #06b6d4;
+$color-cyan-darker: #065a6d;
+
+$text: #edeeef;
+$background: #4A6A8C;
+$primary: #a0c3d7;
+$secondary: #236083;
+$accent: #3da7e4;
+$darkblue: #0b2731;
+
+$navbar-height: 56px;

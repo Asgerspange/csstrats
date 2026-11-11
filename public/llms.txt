@@ -1,0 +1,53 @@
+# CsStrats
+
+> The working surface for competitive Counter-Strike 2 teams: a tactics library, a .dem demo viewer with 2D and 3D playback, and a collaborative Strat Builder. Built in Odense, Denmark by IS Digital ApS.
+
+CsStrats is a web application used by competitive CS2 teams to prepare for matches and learn from them. Three tools share one room: the **Tactics library** (curated Tier 1 and Tier 2 pro plays by map, updated weekly), the **Demoviewer** (drop a .dem file or a FACEIT URL, get a parsed match with round-by-round playback, kill events, plants, defuses, and utility pops in 2D or 3D), and the **Strat Builder** (a collaborative 2D map tool with per-player timed paths, run and walk speeds, scheduled utility throws for smoke, flash, HE, and molotov, and timeline playback).
+
+The primary audience is IGLs, coaches, and managers running competitive CS2 teams globally, from amateur and semi-pro tiers to academy rosters. Serious individual players also use it to analyse their own demos before promotion games.
+
+## Product
+
+- [Tactics library](https://csstrats.dk/#tactics): Curated Tier 1 / Tier 2 tactics by map, weekly updates, filter by side, type, map, team, and tags.
+- [Demoviewer](https://csstrats.dk/#demoviewer): Parsed CS2 demos with 2D and 3D playback, per-round annotations, custom callouts attached to map geometry.
+- [Strat Builder](https://csstrats.dk/#builder): Collaborative 2D map tool. Five player slots with named roles (IGL, Entry, AWP, Support, Lurk), timed waypoint paths, utility throws (smoke, flash, HE, molotov), timeline scrubbing.
+- [How it works](https://csstrats.dk/#workflow): Three steps (upload, annotate, ship) for moving a demo into a runnable team strat.
+
+## Pricing
+
+All paid plans cover one team of up to 8 players, unlimited tactics, unlimited demos. VAT added where applicable. Cancel any time from the user profile.
+
+- **Team Monthly** &mdash; €24.95 per month, month-to-month.
+- **Team Every 6 Months** &mdash; €19.95 per month, billed €119.95 every six months.
+- **Team Annual** &mdash; €15.83 per month, billed €190 once a year. Best value; save 36.6% versus monthly.
+
+CsStrats is a paid product. There is no free plan and no trial. Pick a plan to get full access. Tournament promo codes apply at checkout, then auto-renew at the regular rate every billing cycle until cancelled.
+
+## FAQ
+
+- **What is CsStrats?** A web app for competitive CS2 teams: tactics library, demo viewer, Strat Builder, stratbooks.
+- **Which games?** Counter-Strike 2 only. The parser accepts .dem files from CS2 matchmaking, FACEIT, ESEA, and tournament servers.
+- **Is there a free plan or trial?** No. CsStrats is a paid product for competitive teams. There is no free plan or trial; pick a plan for full access.
+- **Who builds it?** IS Digital ApS, based in Odense, Denmark.
+
+## Brand
+
+Brand line: "The room where the strats live."
+Brand personality: composed, exacting, competitive. Voice of a coach who has watched a lot of demos and is not impressed easily.
+
+## Contact
+
+- Website: https://csstrats.dk
+- Discord (support and community): https://discord.gg/Rmp5p4r7CT
+- X / Twitter: https://x.com/CsStrats2
+- YouTube: https://www.youtube.com/@CSStrats2
+- Instagram: https://www.instagram.com/csstrats/
+- TikTok: https://www.tiktok.com/@csstrats
+
+## Legal
+
+- [Terms of Service](https://csstrats.dk/tos)
+- [Privacy Policy](https://csstrats.dk/policy)
+- [Cookie Policy](https://csstrats.dk/cookie-policy)
+
+CsStrats is not affiliated with Valve Corporation. Counter-Strike and CS2 are trademarks of Valve.

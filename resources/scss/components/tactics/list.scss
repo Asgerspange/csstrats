@@ -1,0 +1,54 @@
+.tactics-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  background-color: #1e1e2e;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+
+  &-content {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: 70px;
+    max-height: 70px;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    padding: .75rem;
+    border-radius: 6px;
+    background-color: #2d2d45;
+    margin-bottom: .75rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #3a3a50;
+    }
+  }
+}
+
+.ct-list-item, .t-list-item {
+  background-color: rgba(42, 43, 134, 0.8);
+  border-radius: 6px;
+  padding: 0.3rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.t-list-item {
+  background-color: rgba(229, 152, 59, 0.8);
+  
+  &:hover {
+    background-color: rgba(216, 154, 78, 0.7);
+  }
+}
+
+.ct-list-item:hover {
+  background-color: rgba(55, 102, 177, 0.7);
+}

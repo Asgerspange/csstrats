@@ -1,0 +1,54 @@
+:root {
+    --font-size-small: 14px;
+    --font-size-regular: 16px;
+    --font-size-large: 20px;
+    --font-size-xlarge: 24px;
+    --font-size-xxlarge: 32px;
+
+    --indention-xs: 4px;
+    --indention-sm: 8px;
+    --indention-md: 16px;
+    --indention-lg: 24px;
+    --indention-xl: 32px;
+    --indention-xxl: 48px;
+
+    --border-radius: 4px;
+    --border-radius-round: 50%;
+
+    --transition: all 0.2s ease 0s;
+    --animation-in-slow: fadeIn 0.5s ease both;
+    --animation-out-slow: fadeOut 0.5s ease both;
+
+    --box-shadow: 0 2px 1px -1px rgba(0,0,0,.2),
+             0 1px 1px 0 rgba(0,0,0,.14),
+             0 1px 3px 0 rgba(0,0,0,.12);
+
+    --elevation: 8.0px 16.0px 16.0px hsl(0deg 0% 0% / 0.25);
+    --elevation-bigger: 8.0px 16.0px 16.0px hsla(0, 0%, 0%, 0.8);
+
+    --text: #100907;
+    --primary: #c96742;
+    --secondary: #e39d83;
+    --accent: #e27f59;
+
+    --main-color-light-20: #e3f2fd;
+    --main-color-light-15: #d1e7fd;
+    --main-color-light-5: #bbdefb;
+    --main-color: #90caf9; /* Also used for text color */
+    --main-color-dark-5: #7fb8e6;
+    --main-color-dark-10: #6ba6d3;
+    --main-color-dark-15: #5394c0;
+
+    --main-gradient: linear-gradient(180deg, #7fb8e6 0%, #5394c0 50%, #7fb8e6 100%);
+
+    --win-box: 0 0 10px rgba(83, 148, 192, 0.1);
+    --main-bg-hover: #1a1d2e;
+    --main-bg: #151829;
+    --main-bg-dark: #0f1419;
+    --button-primary-bg: #2196f3;
+    --card-primary-bg: #1c1f33;
+    --card-btn-bg: #252844;
+    --card-btn-bg-hover: #2d3157; /* approximate 5% lighter than #2a2a2a */
+    --card-header-bg: linear-gradient(to right, var(--main-bg-dark), var(--main-bg));
+    --p-select-color: #90caf9;
+}

@@ -1,0 +1,348 @@
+@import 'tailwindcss';
+@import 'tailwindcss-primeui';
+@import 'tw-animate-css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+
+/* --------------------------------------------------------------------------
+   Base normalization (same as before)
+--------------------------------------------------------------------------- */
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-border, currentColor);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Fonts & small utilities
+--------------------------------------------------------------------------- */
+@layer utilities {
+    body,
+    html {
+        --font-sans:
+            'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    }
+    .bg-card-primary {
+        background-color: var(--card-primary-bg);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   🌙 Dark Blue Theme Palette (Your Provided Colors)
+--------------------------------------------------------------------------- */
+
+:root {
+    --card-bg: #131313;
+    --bg: #171717; /* #171717 */
+  color-scheme: dark;
+
+  --main-color-light-20: #fff7ed;
+  --main-color-light-15: #ffedd5;
+  --main-color-light-5: #fdba74;
+  --main-color: #ff8c00;
+  --main-color-dark-5: #e67e00;
+  --main-color-dark-10: #cc7000;
+  --main-color-dark-15: #bd3d3d;
+  --main-gradient: linear-gradient(180deg, #ff8c00 0%, #bd3d3d 100%);
+  --win-box: 0 0 10px rgba(255, 140, 0, 0.15);
+  --main-bg-hover: #171717;
+  --main-bg: #0a0a0a;
+  --main-bg-dark: #050505;
+  --button-primary-bg: #ff8c00;
+  --card-primary-bg: #171717;
+  --card-btn-bg: #262626;
+  --card-btn-bg-hover: #404040;
+  --card-header-bg: linear-gradient(to right, #050505, #0a0a0a);
+  --p-select-color: #ff8c00;
+  --primary-btn-bg: #e67600;
+  --primary-btn-bg-hover: #ff8c00;
+  --placeholder-text-color: #dadada;
+  --secondary-button-bg: #262626;
+  --secondary-button-bg-hover: #303030;
+  --primary-text-color: #fff;
+  --secondary-text-color: #e67600;
+
+  --select-bg: #202020;
+
+  /* Volt theme alignment */
+  --background: var(--main-bg);
+  --foreground: var(--main-color);
+  --card: var(--card-primary-bg);
+  --card-foreground: var(--main-color);
+  --popover: var(--card-btn-bg);
+  --popover-foreground: var(--main-color);
+  --primary: var(--button-primary-bg);
+  --primary-foreground: #ffffff;
+  --secondary: var(--main-bg-hover);
+  --secondary-foreground: var(--main-color-light-15);
+  --muted: #1f2236;
+  --muted-foreground: var(--main-color-dark-10);
+  --accent: var(--main-color-dark-5);
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #1e233a;
+  --input: #252a45;
+  --ring: var(--main-color-dark-15);
+  --sidebar: var(--main-bg-dark);
+  --sidebar-foreground: var(--main-color);
+  --sidebar-primary: var(--main-color-dark-10);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--card-btn-bg);
+  --sidebar-accent-foreground: var(--main-color-light-15);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--main-color-dark-15);
+  --t-l-color: #d79b33; --t-r-color: #ffb74d; --ct-l-color: #3579bc; --ct-r-color: #90caf9;
+}
+
+/* --------------------------------------------------------------------------
+   Volt + Tailwind Theme Binding
+--------------------------------------------------------------------------- */
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-border: var(--border);
+    --color-ring: var(--ring);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-card: #131313;
+    --color-slider: #252525;
+    --color-primary: #FF8C00;
+    --color-secondary: #A0A0A0;
+    --color-card-secondary: #1A1A1A;
+    --color-grey: #2A2A2A;
+}
+
+/* --------------------------------------------------------------------------
+   PrimeVue Volt Integration (p- variables)
+--------------------------------------------------------------------------- */
+:root {
+    --p-primary-50:  #e3f2fd;
+    --p-primary-100: #bbdefb;
+    --p-primary-200: #90caf9;
+    --p-primary-300: #64b5f6;
+    --p-primary-400: #42a5f5;
+    --p-primary-500: #2196f3;
+    --p-primary-600: #1e88e5;
+    --p-primary-700: #1976d2;
+    --p-primary-800: #1565c0;
+    --p-primary-900: #0d47a1;
+    --p-primary-950: #082b6b;
+
+    --p-surface-0:   #ffffff;
+    --p-surface-800: #1a1d2e;
+    --p-surface-900: #151829;
+    --p-surface-950: #0f1419;
+
+    --p-primary-color: var(--p-primary-400);
+    --p-primary-contrast-color: var(--p-surface-900);
+    --p-primary-hover-color: var(--p-primary-300);
+    --p-primary-active-color: var(--p-primary-200);
+    --p-content-border-color: var(--p-surface-700);
+    --p-content-hover-background: var(--p-surface-800);
+    --p-content-hover-color: var(--p-surface-0);
+    --p-highlight-background: color-mix(in srgb, var(--p-primary-400), transparent 84%);
+    --p-highlight-color: rgba(255, 255, 255, 0.87);
+    /* --p-text-color: var(--main-color); */
+    /* --p-text-hover-color: var(--main-color-light-15); */
+    /* --p-text-muted-color: var(--main-color-dark-10); */
+}
+
+/* --------------------------------------------------------------------------
+   Global application base
+--------------------------------------------------------------------------- */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.bg-primary-button {
+    background-color: var(--primary-btn-bg);
+    transition: background-color 200ms;
+}
+
+.bg-primary-button:hover {
+    background-color: var(--primary-btn-bg-hover);
+}
+
+.placeholder-text {
+    color: var(--placeholder-text-color);
+}
+.bg-secondary-button {
+    background-color: var(--secondary-button-bg);
+}
+
+.pointer-events-all {
+    pointer-events: all !important;
+}
+
+.bg-secondary-button-hover {
+    background-color: var(--secondary-button-bg-hover);
+}
+.text-primary-button {
+    color: var(--primary-text-color);
+}
+/* Always animate chevrons */
+[data-pc-name="select"],
+[data-pc-name="multiselect"] {
+  [data-pc-section="dropdown"] svg {
+    transition: transform 0.2s ease;
+  }
+}
+
+/* SELECT */
+[data-pc-name="select"]
+  [data-pc-section="label"][aria-expanded="true"]
+  ~ [data-pc-section="dropdown"] svg {
+    transform: rotate(-180deg);
+  }
+
+/* MULTISELECT — requires :has() */
+[data-pc-name="multiselect"]:has(
+    [data-pc-section="hiddeninput"][aria-expanded="true"]
+  )
+  [data-pc-section="dropdown"] svg {
+    transform: rotate(-180deg);
+  }
+
+
+.p-slider-range {
+    background: var(--primary-btn-bg) !important;
+}
+
+.p-tab-active {
+    border-color: var(--secondary-text-color) !important;
+    color: var(--secondary-text-color) !important;
+}
+.p-tablist-active-bar {
+    background-color: var(--secondary-text-color) !important;
+}
+
+.custom-track::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-track::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 4px;
+}
+
+.custom-track::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+
+.custom-track {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) var(--color-card);
+}
+/* ───────────────────────────────────────────────────────────────────────────
+   Daylight theme retrofit.
+   The app hardcodes white-based utilities (text-white, bg-white/x,
+   border-white, zinc/neutral surfaces) that the token system can't reach.
+   These overrides activate ONLY under the daylight theme (data-theme hook on
+   <html>), so the dark themes are completely unaffected. First broad pass —
+   refine per component as needed.
+   ─────────────────────────────────────────────────────────────────────────── */
+/* text-white is safe to broadly retint (a hover:text-white flattening to ink
+   is harmless). bg-white / border-white are NOT wildcarded — that would catch
+   hover: variants and make them permanent. Resting white surfaces are handled
+   by the specific selectors below and by the sidebar's themed --sb-ink. */
+[data-theme="daylight"] [class*="text-white"] { color: rgb(30 25 22 / 0.92); }
+
+[data-theme="daylight"] .bg-zinc-950,
+[data-theme="daylight"] .bg-zinc-900,
+[data-theme="daylight"] .bg-neutral-950,
+[data-theme="daylight"] .bg-neutral-900 { background-color: #fbfaf9; }
+
+[data-theme="daylight"] .bg-zinc-800,
+[data-theme="daylight"] .bg-neutral-800 { background-color: #ece7e3; }
+
+[data-theme="daylight"] .border-zinc-800,
+[data-theme="daylight"] .border-zinc-700,
+[data-theme="daylight"] .border-neutral-800,
+[data-theme="daylight"] .border-neutral-700 { border-color: #dcd5cf; }
+
+[data-theme="daylight"] .text-zinc-400,
+[data-theme="daylight"] .text-zinc-500,
+[data-theme="daylight"] .text-neutral-400,
+[data-theme="daylight"] .text-neutral-500 { color: #6f665f; }
+
+/* Keep text legible on the saffron accent button (it sets text-white). */
+[data-theme="daylight"] .bg-primary [class*="text-white"],
+[data-theme="daylight"] [class*="bg-primary"] [class*="text-white"] { color: #fff; }
+
+/* Daylight — PrimeVue / Volt design tokens.
+   The Volt components read --p-* tokens (no darkModeSelector preset), which
+   are hardcoded dark in :root above. Remap them to a light surface ramp with
+   dark text under the daylight theme only. */
+[data-theme="daylight"] {
+    --p-surface-0:   #ffffff;
+    --p-surface-50:  #f8f6f4;
+    --p-surface-100: #f0ece9;
+    --p-surface-200: #e5e0dc;
+    --p-surface-300: #d8d1cb;
+    --p-surface-400: #c8c0b8;
+    --p-surface-500: #a89f96;
+    --p-surface-600: #837a72;
+    --p-surface-700: #d8d1cb;   /* used as content border on light */
+    --p-surface-800: #f0ece9;   /* used as content hover bg on light */
+    --p-surface-900: #2e2925;   /* darkest — text / contrast */
+    --p-surface-950: #1e1916;
+
+    --p-content-background:       #fbfaf9;
+    --p-content-border-color:     #d8d1cb;
+    --p-content-hover-background:  #f0ece9;
+    --p-content-hover-color:      #1e1916;
+    --p-content-color:            #1e1916;
+
+    --p-text-color:        #1e1916;
+    --p-text-hover-color:  #2e2925;
+    --p-text-muted-color:  #6f665f;
+
+    --p-primary-contrast-color: #ffffff;
+    --p-highlight-background:    color-mix(in srgb, #a84900, transparent 88%);
+    --p-highlight-color:        #1e1916;
+
+    --p-form-field-background:        #ffffff;
+    --p-form-field-border-color:      #d8d1cb;
+    --p-form-field-hover-border-color:#b9b0a7;
+    --p-form-field-color:             #1e1916;
+    --p-form-field-placeholder-color: #8a827b;
+    --p-overlay-modal-background:     #fbfaf9;
+    --p-overlay-popover-background:   #fbfaf9;
+}
+
+/* Daylight — Tailwind @theme surface tokens (bg-card, bg-grey, etc. are
+   hardcoded dark in the @theme inline block; flip the surface ones). */
+[data-theme="daylight"] {
+    --color-card: #fbfaf9;
+    --color-card-secondary: #f0ece9;
+    --color-grey: #e5e0dc;
+    --color-slider: #d8d1cb;
+    --card-bg: #fbfaf9;
+    --bg: #f3efed;
+}

@@ -1,0 +1,91 @@
+# Enable gzip compression for runtime content
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/x-httpd-php
+    AddOutputFilterByType DEFLATE application/x-httpd-fastphp
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# PHP settings
+php_value upload_max_filesize 512M
+php_value post_max_size 512M
+
+# Ensure proxies know that the content is compressed
+<IfModule mod_headers.c>
+    Header append Vary User-Agent
+    Header append Vary Accept-Encoding
+</IfModule>
+
+# Handle PHP files with PHP 8.2
+AddType application/x-httpd-php82 .php
+
+# Serve pre-compressed .gz files if they exist and client supports gzip
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Serve pre-compressed CSS files
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}\.gz -f
+    RewriteRule ^(.*\.css)$ $1.gz [QSA,L]
+    
+    # Serve pre-compressed JS files
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}\.gz -f
+    RewriteRule ^(.*\.js)$ $1.gz [QSA,L]
+</IfModule>
+
+# Set correct MIME types for compressed files
+<FilesMatch "\.css\.gz$">
+    AddEncoding gzip .gz
+    AddType text/css .gz
+</FilesMatch>
+
+<FilesMatch "\.js\.gz$">
+    AddEncoding gzip .gz
+    AddType application/javascript .gz
+</FilesMatch>
+
+# Browser caching for static assets
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# Laravel specific rewrites for clean URLs
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} . 
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>

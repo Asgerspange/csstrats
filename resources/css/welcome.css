@@ -1,0 +1,142 @@
+/* Marketing surface CSS. Isolated from the authenticated app's CSS.
+   Tokens align to DESIGN.md frontmatter. OKLCH is canonical. */
+
+@import 'tailwindcss';
+
+@theme {
+    /* Daylight bench: warm light page, ink text. The dark product lives
+       inside .artifact-dark frames below. Saffron is darkened so it holds
+       AA as text and as button fill on the light surfaces. */
+    --color-saffron: oklch(52% 0.15 53);
+    --color-saffron-deep: oklch(45% 0.14 27);
+    --color-steel: oklch(48% 0.045 240);
+
+    /* Alias for the product's --primary so the StratBuilder slice can use
+       the same bg-primary / text-primary / border-primary classes as the
+       authenticated app. Hex value mirrors the real product's #FF8C00. */
+    --color-primary: #ff8c00;
+
+    --color-concrete: #f2f2f2;
+    --color-slate: oklch(98.5% 0.002 53);
+    --color-smoke: oklch(91% 0.006 53);
+    --color-ash: oklch(82% 0.008 53);
+    --color-bone: oklch(45% 0.012 53);
+    --color-chalk: oklch(22% 0.01 53);
+
+    --color-round-won: oklch(72% 0.12 145);
+    --color-round-lost: oklch(58% 0.18 22);
+
+    --font-display: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    --font-inter: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 10px;
+
+    --shadow-floating: 0 1px 0 oklch(100% 0 0 / 0.6), 0 12px 40px oklch(30% 0.01 53 / 0.12);
+    --shadow-cta-glow: 0 0 32px oklch(52% 0.15 53 / 0.18);
+
+    --ease-quart: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-quint: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@layer base {
+    :root {
+        color-scheme: light;
+    }
+
+    /* The dark product, framed inside the light page. Any subtree with
+       this class flips the full token set back to the warm-dark product
+       palette, so token-based utilities (bg-slate, text-bone, ...) render
+       the artifact exactly as the product looks. */
+    .artifact-dark {
+        --color-saffron: oklch(73% 0.17 53);
+        --color-saffron-deep: oklch(53% 0.15 27);
+        --color-steel: oklch(60% 0.045 240);
+        --color-concrete: oklch(17% 0.005 53);
+        --color-slate: oklch(22.5% 0.006 53);
+        --color-smoke: oklch(29% 0.008 53);
+        --color-ash: oklch(40% 0.009 53);
+        --color-bone: oklch(70% 0.012 53);
+        --color-chalk: oklch(95% 0.005 53);
+        color-scheme: dark;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        background: var(--color-concrete);
+        color: var(--color-chalk);
+        font-family: var(--font-display);
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        font-feature-settings: 'ss01', 'ss02';
+        margin: 0;
+        min-height: 100vh;
+    }
+
+    ::selection {
+        background: oklch(52% 0.15 53 / 0.25);
+        color: var(--color-chalk);
+    }
+
+    *:focus-visible {
+        outline: 2px solid var(--color-saffron);
+        outline-offset: 2px;
+        border-radius: 2px;
+    }
+
+    /* Tabular numerics by default for any mono text */
+    .font-mono,
+    [class*='font-mono'] {
+        font-variant-numeric: tabular-nums;
+    }
+}
+
+@layer utilities {
+    /* Scroll-reveal initial state. GSAP toggles .is-revealed on entry.
+       Reduced motion users get a flat reveal handled by the matchMedia guard. */
+    [data-reveal] {
+        opacity: 0;
+        transform: translateY(24px);
+        will-change: transform, opacity;
+    }
+    [data-reveal].is-revealed {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 640ms var(--ease-quint), transform 640ms var(--ease-quint);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        [data-reveal] {
+            opacity: 1;
+            transform: none;
+        }
+        html {
+            scroll-behavior: auto;
+        }
+    }
+
+    /* Custom scrollbar tuned to the warm dark palette */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: var(--color-concrete);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-ash);
+        border-radius: 4px;
+        border: 2px solid var(--color-concrete);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-bone);
+    }
+}

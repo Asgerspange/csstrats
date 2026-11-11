@@ -1,0 +1,34 @@
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/x-httpd-php
+    AddOutputFilterByType DEFLATE application/x-httpd-fastphp
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Make sure proxies know that the content is compressed
+    Header append Vary User-Agent
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Prevent rewrite loop
+    RewriteCond %{REQUEST_URI} !^/public/
+
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+php_value upload_max_filesize 512M
+php_value post_max_size 512M
+php_value memory_limit 512M
+php_value max_execution_time 300

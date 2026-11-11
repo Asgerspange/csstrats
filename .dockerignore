@@ -1,0 +1,25 @@
+# Ignore huge dependencies
+vendor
+node_modules
+public/build
+
+# Ignore git history
+.git
+.gitignore
+.github
+
+# Ignore sensitive or temp files
+.env
+tests
+docker-compose.yml
+Dockerfile
+README.md
+*.dem
+demoparser
+public/hot
+# Keep the cache structure but ignore the files
+bootstrap/cache/*.php
+storage/framework/cache/*
+storage/framework/views/*
+storage/framework/sessions/*
+*.glb

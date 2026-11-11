@@ -1,0 +1,210 @@
+.ct-card {
+    border-left: 4px solid #4a9eff;
+    
+    .tactic-header {
+        background: linear-gradient(135deg, var(--main-bg-dark), rgba(74, 158, 255, 0.1));
+        padding: var(--indention-md);
+        border-bottom: 1px solid rgba(74, 158, 255, 0.2);
+        position: relative;
+    }
+    
+    .tactic-type {
+        background-color: rgba(74, 158, 255, 0.2);
+        border-radius: var(--border-radius);
+        margin: var(--indention-sm) 0 0 var(--indention-md);
+        padding: var(--indention-xs) var(--indention-sm);
+        color: #4a9eff;
+        font-size: var(--font-size-small);
+        font-weight: 500;
+        border: 1px solid rgba(74, 158, 255, 0.4);
+        transition: var(--transition);
+      
+        &:hover {
+            background-color: rgba(74, 158, 255, 0.3);
+            border-color: #4a9eff;
+        }
+    }
+    
+    .tactic-tag {
+        background-color: rgba(74, 158, 255, 0.15);
+        color: #4a9eff;
+        padding: var(--indention-xs) var(--indention-sm);
+        border-radius: var(--border-radius);
+        margin: 0 var(--indention-xs) var(--indention-xs) 0;
+        font-size: var(--font-size-small);
+        transition: var(--transition);
+        border: 1px solid rgba(74, 158, 255, 0.3);
+        
+        &:hover {
+            background-color: rgba(74, 158, 255, 0.25);
+            border-color: #4a9eff;
+            color: white;
+        }
+    }
+}
+  
+.t-card {
+    border-left: 4px solid #ff6b35;
+
+    .tactic-header {
+        background: linear-gradient(135deg, var(--main-bg-dark), rgba(255, 107, 53, 0.1));
+        padding: var(--indention-md);
+        border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+        position: relative;
+    }
+
+    .tactic-type {
+        background-color: rgba(255, 107, 53, 0.2);
+        border-radius: var(--border-radius);
+        margin: var(--indention-sm) 0 0 var(--indention-md);
+        padding: var(--indention-xs) var(--indention-sm);
+        color: #ff6b35;
+        font-size: var(--font-size-small);
+        font-weight: 500;
+        border: 1px solid rgba(255, 107, 53, 0.4);
+        transition: var(--transition);
+        
+        &:hover {
+            background-color: rgba(255, 107, 53, 0.3);
+            border-color: #ff6b35;
+        }
+    }
+    
+    .tactic-tag {
+        background-color: rgba(255, 107, 53, 0.15);
+        color: #ff6b35;
+        padding: var(--indention-xs) var(--indention-sm);
+        border-radius: var(--border-radius);
+        margin: 0 var(--indention-xs) var(--indention-xs) 0;
+        font-size: var(--font-size-small);
+        transition: var(--transition);
+        border: 1px solid rgba(255, 107, 53, 0.3);
+        
+        &:hover {
+            background-color: rgba(255, 107, 53, 0.25);
+            border-color: #ff6b35;
+            color: white;
+        }
+    }
+}
+  
+.selected-card {
+    border: 2px solid var(--button-primary-bg);
+    box-shadow: var(--win-box);
+    transform: translateY(-2px);
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(88, 188, 130, 0.1), rgba(117, 170, 127, 0.1));
+        pointer-events: none;
+        z-index: 1;
+    }
+}
+
+.tactics-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: var(--transition);
+    z-index: 1;
+    opacity: 0.3;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            180deg,
+            transparent 0%,
+            var(--card-primary-bg) 100%
+        );
+    }
+}
+
+.tactic-header {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .tactic-map {
+        font-size: var(--font-size-large);
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.95);
+    }
+    
+    .tactic-team {
+        font-size: var(--font-size-regular);
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.tactic-type {
+    position: relative;
+    z-index: 3;
+    align-self: flex-start;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.tactic-description {
+    position: relative;
+    z-index: 3;
+    flex-grow: 1;
+    padding: var(--indention-md);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: var(--font-size-regular);
+    line-height: 1.5;
+    overflow: hidden;
+    
+    &.hidden {
+        opacity: 0;
+        height: 0;
+        padding: 0;
+        transition: var(--transition);
+    }
+    
+    p {
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+// Tag container styling
+.tactic-tags {
+    position: relative;
+    z-index: 3;
+    padding: 0 var(--indention-md) var(--indention-md);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--indention-xs);
+}
+
+.tactic-actions {
+    position: absolute;
+    z-index: 3;
+    padding: var(--indention-sm) var(--indention-md);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--indention-sm);
+}
+

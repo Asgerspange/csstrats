@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 550" id="human-hitmap">
+  <!-- Head hit area -->
+  <g id="head-group">
+    <path id="head" d="M150 40 C190 40, 200 80, 200 110 C200 140, 190 160, 150 170 C110 160, 100 140, 100 110 C100 80, 110 40, 150 40" 
+          class="hit-area"
+          data-hitgroup="headshots"
+          data-label="Head" />
+    <!-- Hit count for head -->
+    <text x="150" y="110" class="hit-count" text-anchor="middle" data-for="headshots"></text>
+  </g>
+
+  <!-- Chest hit area -->
+  <g id="chest-group">
+    <path id="chest" d="M150 170 L200 180 C205 210, 210 230, 200 260 L150 270 L100 260 C90 230, 95 210, 100 180 Z" 
+          class="hit-area"
+          data-hitgroup="chest"
+          data-label="Chest" />
+    <!-- Hit count for chest -->
+    <text x="150" y="220" class="hit-count" text-anchor="middle" data-for="chest"></text>
+  </g>
+
+  <!-- Stomach hit area -->
+  <g id="stomach-group">
+    <path id="stomach" d="M150 270 L200 260 C205 290, 205 300, 190 330 L150 340 L110 330 C95 300, 95 290, 100 260 Z" 
+          class="hit-area"
+          data-hitgroup="stomach"
+          data-label="Stomach" />
+    <!-- Hit count for stomach -->
+    <text x="150" y="305" class="hit-count" text-anchor="middle" data-for="stomach"></text>
+  </g>
+
+  <!-- Left arm hit area -->
+  <g id="left-arm-group">
+    <path id="left-arm" d="M100 180 C90 185, 85 190, 80 200 C75 240, 70 280, 75 330 C80 350, 90 360, 100 350 C100 330, 105 300, 110 330 Z" 
+          class="hit-area"
+          data-hitgroup="left_arm"
+          data-label="Left Arm" />
+    <!-- Hit count for left arm -->
+    <text x="85" y="270" class="hit-count" text-anchor="middle" data-for="left_arm"></text>
+  </g>
+
+  <!-- Right arm hit area -->
+  <g id="right-arm-group">
+    <path id="right-arm" d="M200 180 C210 185, 215 190, 220 200 C225 240, 230 280, 225 330 C220 350, 210 360, 200 350 C200 330, 195 300, 190 330 Z" 
+          class="hit-area"
+          data-hitgroup="right_arm"
+          data-label="Right Arm" />
+    <!-- Hit count for right arm -->
+    <text x="215" y="270" class="hit-count" text-anchor="middle" data-for="right_arm"></text>
+  </g>
+
+  <!-- Left leg hit area -->
+  <g id="left-leg-group">
+    <path id="left-leg" d="M110 330 L130 340 L135 450 C135 480, 125 500, 110 520 L100 520 C85 500, 80 480, 95 450 Z" 
+          class="hit-area"
+          data-hitgroup="left_leg"
+          data-label="Left Leg" />
+    <!-- Hit count for left leg -->
+    <text x="115" y="430" class="hit-count" text-anchor="middle" data-for="left_leg"></text>
+  </g>
+
+  <!-- Right leg hit area -->
+  <g id="right-leg-group">
+    <path id="right-leg" d="M190 330 L170 340 L165 450 C165 480, 175 500, 190 520 L200 520 C215 500, 220 480, 205 450 Z" 
+          class="hit-area"
+          data-hitgroup="right_leg"
+          data-label="Right Leg" />
+    <!-- Hit count for right leg -->
+    <text x="185" y="430" class="hit-count" text-anchor="middle" data-for="right_leg"></text>
+  </g>
+
+  <!-- Hover effect overlay for hit areas -->
+  <style>
+    .hit-area {
+      fill: rgba(32, 32, 50, 0.8);
+      stroke: rgba(255, 255, 255, 0.3);
+      stroke-width: 1.5;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .hit-area:hover {
+      stroke: rgba(255, 255, 255, 0.7);
+      stroke-width: 2;
+      filter: brightness(1.2);
+    }
+    
+    .hit-count {
+      font-weight: 700;
+      font-size: 16px;
+      fill: #ffffff;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+      pointer-events: none;
+    }
+    
+    /* Add data-label tooltips */
+    .hit-area:hover::after {
+      content: attr(data-label);
+      position: absolute;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 5px 10px;
+      border-radius: 4px;
+      color: white;
+      font-size: 12px;
+      pointer-events: none;
+    }
+  </style>
+</svg>

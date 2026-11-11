@@ -1,0 +1,35 @@
+/* Partner (referral) dashboard CSS. Isolated from the product app and the
+   marketing surface. Tailwind v4 engine; tokens mirror DESIGN.md. */
+
+@import 'tailwindcss';
+
+@theme {
+    --color-primary: #ff8c00;
+    --color-ink: oklch(22% 0.01 53);
+    --color-bone: oklch(55% 0.012 53);
+
+    --font-display: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+:root {
+    /* Warm-dark bench surface, per the Warm-Dark rule (no pure #000/#fff). */
+    --p-canvas: oklch(16% 0.012 250);
+    --p-surface: oklch(20% 0.012 250);
+    --p-surface-2: oklch(24% 0.012 250);
+    --p-border: oklch(100% 0 0 / 0.08);
+    --p-text: oklch(96% 0.005 250);
+    --p-muted: oklch(72% 0.01 250);
+}
+
+html, body {
+    margin: 0;
+    background: var(--p-canvas);
+    color: var(--p-text);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+}
+
+.tabular {
+    font-variant-numeric: tabular-nums;
+}

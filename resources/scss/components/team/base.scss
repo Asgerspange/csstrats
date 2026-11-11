@@ -1,0 +1,418 @@
+.team-header-section {
+    display: flex;
+    padding: 2.5rem;
+    background: linear-gradient(to right, var(--main-bg-dark), var(--main-bg));
+    border-bottom: 1px solid #2d2d45;
+    position: relative;
+    
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(to right, var(--button-primary-bg), var(--main-color));
+    }
+    
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1.5rem;
+    }
+}
+
+.team-logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2.5rem;
+    
+    @media (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.team-logo-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid var(--secondary-text-color);
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .edit-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(26, 26, 42, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        cursor: pointer;
+        
+        i {
+            color: var(--secondary-text-color);
+            font-size: 2rem;
+        }
+    }
+    
+    &:hover .edit-icon {
+        opacity: 1;
+    }
+    
+    input[type="file"] {
+        display: none;
+    }
+}
+
+.team-title-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.team-name-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    
+    h1 {
+        color: #ffffff;
+        font-size: 2.5rem;
+        margin: 0;
+        font-weight: 600;
+        
+        @media (max-width: 768px) {
+            font-size: 2rem;
+            text-align: center;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.75rem;
+    
+    .admin-actions {
+        display: flex;
+        gap: 0.75rem;
+    }
+}
+
+.action-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--card-btn-bg) !important;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--main-color);
+    transition: all 0.2s ease;
+    
+    &:hover {
+        background-color: var(--card-btn-bg-hover);
+        transform: translateY(-2px);
+    }
+    
+    &.share-icon:hover {
+        color: var(--secondary-text-color);
+    }
+    
+    &.delete-icon:hover {
+        color: #ff5252;
+    }
+}
+
+.calendar-section {
+    margin-bottom: 3rem;
+}
+
+.team-container {
+    max-width: 1500px;
+    margin: 2rem auto;
+    background-color: var(--card-primary-bg);;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    border: 1px solid #2d2d45;
+
+    .p-tabpanels, .p-tablist-tab-list {
+        background-color: transparent;
+    }
+}
+
+.team-meta {
+    display: flex;
+    gap: 2rem;
+    
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    
+    .meta-label {
+        font-size: 0.85rem;
+        color: var(--main-color);
+        margin-bottom: 0.5rem;
+    }
+    
+    .meta-value {
+        font-size: 1rem;
+        color: #ffffff;
+    }
+    
+    @media (max-width: 768px) {
+        align-items: center;
+    }
+}
+
+.team-content {
+    padding: 2.5rem;
+    
+    @media (max-width: 768px) {
+        padding: 1.5rem;
+    }
+}
+
+.stratbooks-section,
+.members-section {
+    margin-bottom: 3rem;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    
+    h2 {
+        color: var(--main-color);
+        font-size: 1.3rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        margin: 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--secondary-text-color);
+    }
+    
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+.stratbook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.stratbook-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--card-btn-bg);
+    border-radius: 8px;
+    padding: 1.25rem;
+    border-left: 3px solid var(--button-primary-bg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.stratbook-info {
+    margin-bottom: 1rem;
+}
+
+.stratbook-name {
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.stratbook-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #58bc82;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    
+    i {
+        font-size: 1.1rem;
+    }
+    
+    &:hover {
+        color: #6eca94;
+    }
+}
+
+.member-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.member-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-btn-bg);
+    border-radius: 8px;
+    padding: 1.25rem;
+    border-left: 3px solid var(--button-primary-bg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.member-info {
+    margin-bottom: 1.25rem;
+    
+    .member-name {
+        display: block;
+        font-size: 1.2rem;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+    
+    .member-role {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--main-color);
+        font-weight: 500;
+    }
+}
+
+.member-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.member-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.profile-link,
+.steam-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--card-btn-bg);
+    border-radius: 6px;
+    color: var(--main-color);
+    transition: all 0.2s ease;
+    
+    i {
+        font-size: 1.1rem;
+    }
+    
+    &:hover {
+        background-color: #3a3a50;
+        color: #58bc82;
+        transform: translateY(-2px);
+    }
+}
+
+.steam-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.action-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.leave-icon,
+.remove-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--card-btn-bg);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+        background-color: var(--card-btn-bg-hover);
+    }
+}
+
+.leave-icon {
+    color: #ff9800;
+    
+    &:hover {
+        color: #ffb74d;
+    }
+}
+
+.remove-icon {
+    color: #ff5252;
+    
+    &:hover {
+        color: #ff7b7b;
+    }
+}
+
+.confirm-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    
+}
